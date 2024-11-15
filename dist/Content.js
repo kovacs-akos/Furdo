@@ -4,6 +4,7 @@ exports.default = content;
 const tslib_1 = require("tslib");
 const fs_1 = tslib_1.__importDefault(require("fs"));
 const url_1 = tslib_1.__importDefault(require("url"));
+const Solution_1 = tslib_1.__importDefault(require("./Solution"));
 function content(req, res) {
     if (req.url === "/favicon.ico") {
         res.writeHead(200, { "Content-Type": "image/x-icon" });
@@ -21,13 +22,7 @@ function content(req, res) {
     res.write("</head>");
     res.write("<body><form><pre>");
     const params = new url_1.default.URL(req.url, `http://${req.headers.host}/`).searchParams;
-    res.write("Egyszerű Hello World! (2024/2025)\n");
-    res.write("<span style='color: blue;'><i>Színes és dőlt Hello World!'</i></span>\n");
-    let korod = parseInt(params.get("kor"));
-    if (isNaN(korod))
-        korod = 18;
-    res.write(`<label>Kérem a korod: <input type='text' name='kor' value=${korod} style='max-width:100px;' onChange='this.form.submit();'></label>\n`);
-    res.write(`Te ${korod} éves vagy!\n`);
+    const sol = new Solution_1.default("furdoadat.txt");
     res.write("</pre></form></body></html>");
     res.end();
 }
