@@ -26,7 +26,7 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     // Kezd a kódolást innen -->
 
     const sol: Solution = new Solution("furdoadat.txt");
-
+    res.write(`\n6. feladat\n${sol.furdoDepartmentStatistics()}\n`);
 
     // <---- Fejezd be a kódolást
 
