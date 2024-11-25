@@ -24,8 +24,9 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     const params = new url.URL(req.url as string, `http://${req.headers.host}/`).searchParams;
 
     // Kezd a kódolást innen -->
-
     const sol: Solution = new Solution("furdoadat.txt");
+    res.write(`5. feladat\n${sol.furdoTimeStatistics()}\n`);
+
 
 
     // <---- Fejezd be a kódolást
