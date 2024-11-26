@@ -26,7 +26,7 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     // Kezd a kódolást innen -->
 
     const sol: Solution = new Solution("furdoadat.txt");
-
+    sol.writeSaunaTimeToFile("szauna.txt");
 
     // <---- Fejezd be a kódolást
 
