@@ -69,7 +69,7 @@ export default class Solution {
 
         fs.writeFileSync(fileName, lines.join("\n"));
     }
-=======
+
     taskThree(){
         let ids = this.#guestData.map(x => x.guestId);
         let numberOfIds = 0;
@@ -163,5 +163,5 @@ export default class Solution {
 
     
 
->>>
+
 }
