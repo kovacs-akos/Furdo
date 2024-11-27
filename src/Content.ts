@@ -33,7 +33,7 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write(`2.feladat: ${sol.taskTwo()}\n`);
     res.write(`3.feladat: ${sol.taskThree()}\n`);
     res.write(`4.feladat: ${sol.taskFour()}\n`);
-    
+    res.write(`5.feladat: ${sol.furdoTimeStatistics()}\n`);
     res.write(`7. feladat\n${sol.furdoDepartmentStatistics()}\n`);
     sol.writeSaunaTimeToFile("szauna.txt");
 
