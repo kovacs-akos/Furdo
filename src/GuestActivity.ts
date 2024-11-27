@@ -1,5 +1,5 @@
 export default class GuestActivity{
-    #guestId: number;
+    ;#guestId: number
     #sectionId: number;
     #inOrOut: boolean;
     #when: Date;

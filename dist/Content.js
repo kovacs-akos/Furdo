@@ -23,7 +23,15 @@ function content(req, res) {
     res.write("<body><form><pre>");
     const params = new url_1.default.URL(req.url, `http://${req.headers.host}/`).searchParams;
     const sol = new Solution_1.default("furdoadat.txt");
+
     res.write(`\n6. feladat\n${sol.furdoDepartmentStatistics()}\n`);
+
+
+    
+
+    res.write(`5. feladat\n${sol.furdoTimeStatistics()}\n`);
+    sol.writeSaunaTimeToFile("szauna.txt");
+
     res.write("</pre></form></body></html>");
     res.end();
 }
