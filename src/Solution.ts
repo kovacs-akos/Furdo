@@ -11,30 +11,12 @@ export default class Solution {
             .forEach(line => {
                 this.#guestData.push(new GuestActivity(line));
             });
-    }
-
-
-
-
-        let maxTime = 0;
-        let maxGuestId: number | null = null;
-
-        for (const guestId in guestTimes) {
-            if (guestTimes[guestId] > maxTime) {
-                maxTime = guestTimes[guestId];
-                maxGuestId = parseInt(guestId);
-            }
         }
 
-        // Convert milliseconds to hours, minutes, and seconds
-        if (maxGuestId !== null) {
-            const hours = Math.floor(maxTime / (1000 * 60 * 60));
-            const minutes = Math.floor((maxTime % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((maxTime % (1000 * 60)) / 1000);
 
-            return `4. feladat \nA legtöbb időt eltöltő vendég:\n${maxGuestId}vendég ${hours}:${minutes}:${seconds}`;
-        }
-    } 
+
+
+
 
 
     taskTwo(){
@@ -83,7 +65,27 @@ export default class Solution {
                 }
             }
         });
+            let maxTime = 0;
+            let maxGuestId: number | null = null;
+
+            for (const guestId in guestTimes) {
+                if (guestTimes[guestId] > maxTime) {
+                    maxTime = guestTimes[guestId];
+                    maxGuestId = parseInt(guestId);
+                }
+            }
+
+            // Convert milliseconds to hours, minutes, and seconds
+            if (maxGuestId !== null) {
+                const hours = Math.floor(maxTime / (1000 * 60 * 60));
+                const minutes = Math.floor((maxTime % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((maxTime % (1000 * 60)) / 1000);
+
+                return `4. feladat \nA legtöbb időt eltöltő vendég:\n${maxGuestId}vendég ${hours}:${minutes}:${seconds}`;
+            }
+    } 
 
 
 
+}
 }
