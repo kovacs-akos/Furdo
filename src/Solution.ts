@@ -23,6 +23,53 @@ export default class Solution {
         return `2.feladat\nAz első vendég ${this.#guestData[0].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.\nAz utolsó vendég ${this.#guestData[this.#guestData.length - 1].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.`
     }
 
+
+
+    calculateSaunaTime() {
+        const saunaLog: Map<number, Array<{ start: Date, end?: Date }>> = new Map();
+        const saunaTime: Map<number, number> = new Map();
+
+        this.#guestData.forEach(guest => {
+            if (guest.sectionId === 2) { 
+                if (!saunaLog.has(guest.guestId)) {
+                    saunaLog.set(guest.guestId, []);
+                }
+                const logs = saunaLog.get(guest.guestId)!;
+                if (logs.length > 0 && !logs[logs.length - 1].end) {
+                    logs[logs.length - 1].end = guest.when;
+                } else {
+                    logs.push({ start: guest.when });
+                }
+            }
+        });
+
+        saunaLog.forEach((logs, guestId) => {
+            let totalTime = 0;
+            logs.forEach(log => {
+                if (log.end) {
+                    totalTime += (log.end.getTime() - log.start.getTime()) / 1000;
+                }
+            });
+            saunaTime.set(guestId, totalTime);
+        });
+
+        return saunaTime;
+    }
+
+    writeSaunaTimeToFile(fileName: string) {
+        const saunaTime = this.calculateSaunaTime();
+        const lines: string[] = [];
+
+        saunaTime.forEach((time, guestId) => {
+            const hours = Math.floor(time / 3600);
+            const minutes = Math.floor((time % 3600) / 60);
+            const seconds = Math.floor(time % 60);
+            lines.push(`${guestId} ${hours}:${minutes}:${seconds}`);
+        });
+
+        fs.writeFileSync(fileName, lines.join("\n"));
+    }
+=======
     taskThree(){
         let ids = this.#guestData.map(x => x.guestId);
         let numberOfIds = 0;
