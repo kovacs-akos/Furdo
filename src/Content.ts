@@ -26,10 +26,14 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     // Kezd a kódolást innen -->
     const sol: Solution = new Solution("furdoadat.txt");
 
+    res.write(`\n6. feladat\n${sol.furdoDepartmentStatistics()}\n`);
+
+
     
 
     res.write(`5. feladat\n${sol.furdoTimeStatistics()}\n`);
     sol.writeSaunaTimeToFile("szauna.txt");
+
 
 
 
