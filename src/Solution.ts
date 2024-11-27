@@ -12,4 +12,11 @@ export default class Solution {
                 this.#guestData.push(new GuestActivity(line));
             });
     }
+
+
+    taskTwo(){
+        return `2.feladat\nAz első vendég ${this.#guestData[0].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.\nAz utolsó vendég ${this.#guestData[this.#guestData.length - 1].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.`
+    }
+
+
 }

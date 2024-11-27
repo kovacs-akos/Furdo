@@ -23,6 +23,7 @@ function content(req, res) {
     res.write("<body><form><pre>");
     const params = new url_1.default.URL(req.url, `http://${req.headers.host}/`).searchParams;
     const sol = new Solution_1.default("furdoadat.txt");
+    res.write(`5. feladat\n${sol.furdoTimeStatistics()}\n`);
     res.write("</pre></form></body></html>");
     res.end();
 }
