@@ -13,6 +13,11 @@ export default class Solution {
             });
     }
 
+
+    taskTwo(){
+        return `2.feladat\nAz első vendég ${this.#guestData[0].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.\nAz utolsó vendég ${this.#guestData[this.#guestData.length - 1].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.`
+    }
+
     taskThree(){
         let ids = this.#guestData.map(x => x.guestId);
         let numberOfIds = 0;
@@ -33,4 +38,6 @@ export default class Solution {
 
         return `3. feladat\nA fürdőben ${peopleWhoDidntExplore} vendég járt csak egy részlegen.`;
     }
+
+
 }

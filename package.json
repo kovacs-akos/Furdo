@@ -20,6 +20,7 @@
     "author": "Nits László",
     "license": "MIT",
     "dependencies": {
+        "mongoose": "^8.8.2",
         "ts-node": "^10.9.2"
     },
     "devDependencies": {
