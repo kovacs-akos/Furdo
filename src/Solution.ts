@@ -14,6 +14,29 @@ export default class Solution {
     }
 
 
+
+
+        let maxTime = 0;
+        let maxGuestId: number | null = null;
+
+        for (const guestId in guestTimes) {
+            if (guestTimes[guestId] > maxTime) {
+                maxTime = guestTimes[guestId];
+                maxGuestId = parseInt(guestId);
+            }
+        }
+
+        // Convert milliseconds to hours, minutes, and seconds
+        if (maxGuestId !== null) {
+            const hours = Math.floor(maxTime / (1000 * 60 * 60));
+            const minutes = Math.floor((maxTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((maxTime % (1000 * 60)) / 1000);
+
+            return `4. feladat \nA legtöbb időt eltöltő vendég:\n${maxGuestId}vendég ${hours}:${minutes}:${seconds}`;
+        }
+    } 
+
+
     taskTwo(){
         return `2.feladat\nAz első vendég ${this.#guestData[0].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.\nAz utolsó vendég ${this.#guestData[this.#guestData.length - 1].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.`
     }
@@ -38,6 +61,29 @@ export default class Solution {
 
         return `3. feladat\nA fürdőben ${peopleWhoDidntExplore} vendég járt csak egy részlegen.`;
     }
+
+
+    taskFour() {
+        const guestTimes: Record<number, number> = {}; // Store total time per guest
+        const lastInTimes: Record<number, Date> = {}; // Store the last 'in' time for each guest
+
+        this.#guestData.forEach(activity => {
+            const guestId = activity.guestId;
+            const when = activity.when;
+
+            if (activity.inOrOut) {
+                // Record the 'in' time
+                lastInTimes[guestId] = when;
+            } else {
+
+                if (lastInTimes[guestId]) {
+                    const timeSpent = when.getTime() - lastInTimes[guestId].getTime(); // Time in milliseconds
+                    guestTimes[guestId] = (guestTimes[guestId] || 0) + timeSpent;
+                    delete lastInTimes[guestId]; // Clear 'in' time after processing
+                }
+            }
+        });
+
 
 
 }
