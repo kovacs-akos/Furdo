@@ -78,7 +78,7 @@ export default class Solution {
                 const minutes = Math.floor((maxTime % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((maxTime % (1000 * 60)) / 1000);
 
-                return `4. feladat \nA legtöbb időt eltöltő vendég:\n${maxGuestId}vendég ${hours}:${minutes}:${seconds}`;
+                return `4. feladat \nA legtöbb időt eltöltő vendég:\n${maxGuestId}. vendég ${hours}:${minutes}:${seconds}`;
             }
     } 
 
