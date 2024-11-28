@@ -4,7 +4,7 @@ describe("Solution class", () => {
     const instance: Solution = new Solution("furdoadat.txt");
     instance.taskTwo();
     it("Should return the correct answer for taskTwo", () => {
-        expect(instance.taskTwo()).toBe("2.feladat\nAz első vendég 06:14:56-kor lépett ki az öltözőből.\nAz utolsó vendég 19:56:22-kor lépett ki az öltözőből.");
+        expect(instance.taskTwo()).toBe("2. feladat\nAz első vendég 06:14:56-kor lépett ki az öltözőből.\nAz utolsó vendég 19:56:22-kor lépett ki az öltözőből.");
     });
 
     it("Should return the correct answer for taskThree", () => {
@@ -16,12 +16,12 @@ describe("Solution class", () => {
     });
 
     it("Should return the correct answer for taskFive", () => {
-        expect(instance.taskFive()).toBe("Fürdőben voltak 6-9 között: 9 vendég\nFürdőben voltak 9-16 között: 30 vendég\nFürdőben voltak 16-20 között: 61 vendég");
+        expect(instance.taskFive()).toBe("5. feladat\nFürdőben voltak 6-9 között: 9 vendég\nFürdőben voltak 9-16 között: 30 vendég\nFürdőben voltak 16-20 között: 61 vendég");
 
     });
 
     it("Should return the correct answer for taskSeven", () => {
-        expect(instance.taskSeven()).toBe("Uszodában volt: 41 vendég\nSzaunában volt: 52 vendég\nGyógyvízben volt: 54 vendég\nStrandon volt: 48 vendég");
+        expect(instance.taskSeven()).toBe("7. feladat\nUszodában volt: 41 vendég\nSzaunában volt: 52 vendég\nGyógyvízben volt: 54 vendég\nStrandon volt: 48 vendég");
     });
 
 });

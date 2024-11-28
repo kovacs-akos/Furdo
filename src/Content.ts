@@ -30,12 +30,12 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
 
 
     
-    res.write(`2.feladat: ${sol.taskTwo()}\n`);
-    res.write(`3.feladat: ${sol.taskThree()}\n`);
-    res.write(`4.feladat: ${sol.taskFour()}\n`);
-    res.write(`5.feladat: ${sol.taskFive()}\n`);
+    res.write(`${sol.taskTwo()}\n`);
+    res.write(`${sol.taskThree()}\n`);
+    res.write(`${sol.taskFour()}\n`);
+    res.write(`${sol.taskFive()}\n`);
     sol.taskSix("szauna.txt");
-    res.write(`7. feladat\n${sol.taskSeven()}\n`);
+    res.write(`${sol.taskSeven()}\n`);
 
 
 
