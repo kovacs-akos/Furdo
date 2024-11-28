@@ -20,7 +20,7 @@ export default class Solution {
 
 
     taskTwo(){
-        return `2.feladat\nAz első vendég ${this.#guestData[0].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.\nAz utolsó vendég ${this.#guestData[this.#guestData.length - 1].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.`
+        return `2. feladat\nAz első vendég ${this.#guestData[0].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.\nAz utolsó vendég ${this.#guestData[this.#guestData.length - 1].when.toString().split(' ')[4]}-kor lépett ki az öltözőből.`
     }
     taskThree(){
         let ids = this.#guestData.map(x => x.guestId);
@@ -96,7 +96,7 @@ export default class Solution {
                 fourToEight++;
             }
         });
-        return `Fürdőben voltak 6-9 között: ${sixToNine} vendég\nFürdőben voltak 9-16 között: ${nineToFour} vendég\nFürdőben voltak 16-20 között: ${fourToEight} vendég`;
+        return `5. feladat\nFürdőben voltak 6-9 között: ${sixToNine} vendég\nFürdőben voltak 9-16 között: ${nineToFour} vendég\nFürdőben voltak 16-20 között: ${fourToEight} vendég`;
     }
 
 
@@ -171,7 +171,7 @@ export default class Solution {
                 }
             }
         });
-        return `Uszodában volt: ${uszoda.size} vendég\nSzaunában volt: ${szauna.size} vendég\nGyógyvízben volt: ${gyogyviz.size} vendég\nStrandon volt: ${strand.size} vendég`;
+        return `7. feladat\nUszodában volt: ${uszoda.size} vendég\nSzaunában volt: ${szauna.size} vendég\nGyógyvízben volt: ${gyogyviz.size} vendég\nStrandon volt: ${strand.size} vendég`;
     }
 
 
